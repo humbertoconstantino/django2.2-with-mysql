@@ -1,0 +1,26 @@
+{%load bootstrap4%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    {%bootstrap_css%}
+</head>
+<body>
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="../static/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Constantino WEB
+  </a>
+    <a class="navbar-brand" href="/admin">{{logado}}</a>
+
+</nav>
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/contato">Fale-conosco</a>
+  </li>
+
+</ul>
+</body>
+</html>
