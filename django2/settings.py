@@ -131,7 +131,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'statifiles')
 
 LOGOUT_REDIRECT_URL = 'index'
 
-# Configrações de e-mail
+# Configurações de e-mail
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 """
 EMAIL_HOST = 'localhost'
