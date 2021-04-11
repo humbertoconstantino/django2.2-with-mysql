@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .forms import ContatoForm
+from .forms import ContatoForm, ProdutoModelForm
 from django.contrib import messages
+
 
 # Create your views here.
 def index(request):
@@ -33,4 +34,20 @@ def contato(request):
     return render(request, 'contato.html', context)
 
 def produto(request):
-    return render(request, 'produto.html')
+    if str(request.method) == 'POST':
+        form = ProdutoModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Produto salvo com sucesso!')
+            form = ProdutoModelForm()
+        else:
+            messages.error(request, 'Error ao salvar produto.')
+    # NO CARREGAMENTO DA PÁGINA O MÉTODO É GET, POR ISSO ESTÁ INSTANCIANDO O FORM PARA PODER APARECER NA PÁGINA
+    # ASSIM QUE ELA FOR CARREGADA!
+    else:
+        form = ProdutoModelForm()
+    context = {
+        'form': form
+
+    }
+    return render(request, 'produto.html', context)
